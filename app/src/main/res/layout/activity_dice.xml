@@ -6,22 +6,66 @@
     android:layout_height="match_parent"
     tools:context="com.txcsmad.madfall2017.DiceActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/player_textview"
+        android:text="Player: "
+        android:textSize="36sp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/computer_textview"
+        android:text="Computer: "
+        android:textSize="36sp"
+        android:layout_below="@id/player_textview"
+        android:layout_centerHorizontal="true"/>
+
     <ImageView
         android:id="@+id/image_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/computer_textview"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/dice1"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/points_textview"
+        android:text="Points in store:"
+        android:textSize="24sp"
+        android:layout_below="@id/image_dice"
+        android:layout_centerHorizontal="true"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Roll"
-        android:id="@+id/button"
-        android:layout_below="@id/image_dice"
+        android:id="@+id/roll_button"
+        android:layout_below="@id/points_textview"
         android:layout_centerHorizontal="true"
         android:onClick="rollDice"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hold_button"
+        android:text="hold"
+        android:layout_toEndOf="@id/roll_button"
+        android:layout_below="@id/points_textview"
+        android:onClick="holdDice"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset_button"
+        android:text="reset"
+        android:layout_below="@id/points_textview"
+        android:layout_toStartOf="@id/roll_button"
+        android:onClick="resetGame"/>
 
 
 </RelativeLayout>

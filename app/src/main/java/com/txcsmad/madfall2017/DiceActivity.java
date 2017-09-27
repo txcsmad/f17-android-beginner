@@ -1,14 +1,22 @@
 package com.txcsmad.madfall2017;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class DiceActivity extends AppCompatActivity {
 
     private ImageView imageDice;
+    private TextView playerTextview;
+    private TextView computerTextview;
+    private TextView pointsTextvew;
+
+    private GameObject gameObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +25,11 @@ public class DiceActivity extends AppCompatActivity {
 
         imageDice = (ImageView) findViewById(R.id.image_dice);
 
+        playerTextview = (TextView) findViewById(R.id.player_textview);
+        computerTextview = (TextView) findViewById(R.id.computer_textview);
+        pointsTextvew = (TextView) findViewById(R.id.points_textview);
+
+        gameObject = new GameObject(this);
     }
 
     @DrawableRes
@@ -34,10 +47,42 @@ public class DiceActivity extends AppCompatActivity {
     }
 
     public void rollDice(View view) {
-        int roll = 1 + (int) (Math.random() * 6);
+        gameObject.roll();
+        updateUI();
+    }
 
-        int diceResource = getDiceImage(roll);
+    public void holdDice(View view) {
+        gameObject.hold();
+        updateUI();
+    }
 
-        imageDice.setImageResource(diceResource);
+    public void resetGame(View view) {
+        gameObject.reset();
+        updateUI();
+    }
+
+    public void updateUI() {
+        int playerScore = gameObject.getPlayerScore();
+        int computerScore = gameObject.getComputerScore();
+        int points = gameObject.getPoints();
+        int roll = gameObject.getRoll();
+
+        Drawable image = getResources()
+                        .getDrawable(getDiceImage(roll));
+
+        imageDice.setImageDrawable(image);
+
+        playerTextview.setText("Player: " + playerScore);
+        computerTextview.setText("Computer: " + computerScore);
+        pointsTextvew.setText("Points in store: " + points);
+
+        if (playerScore >= 100) {
+            Toast.makeText(this, "Player won!", Toast.LENGTH_SHORT).show();
+            resetGame(null);
+        }
+        else if (computerScore >= 100) {
+            Toast.makeText(this, "Computer won!", Toast.LENGTH_SHORT).show();
+            resetGame(null);
+        }
     }
 }
