@@ -1,7 +1,10 @@
 package com.txcsmad.madfall2017;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -25,5 +28,16 @@ public class ScheduleActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.schedule_listview);
         adapter = new ArrayAdapter<String>(this, R.layout.app_list_item, R.id.text_view, days);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String element = (String) listView.getItemAtPosition(i);
+
+                Intent intent = new Intent(ScheduleActivity.this, EventActivity.class);
+                intent.putExtra("day", element);
+                startActivity(intent);
+            }
+        });
     }
 }
