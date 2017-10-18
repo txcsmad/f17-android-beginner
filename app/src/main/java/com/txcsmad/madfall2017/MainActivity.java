@@ -22,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<String> textList = Arrays.asList("Scarnes Dice",
-                                                    "Schedule");
+                                                    "Schedule",
+                                                    "Infinite Kittens");
 
         ListView appList = (ListView) findViewById(R.id.app_listview);
         final Context context = this;
-        ArrayAdapter adapter = new ArrayAdapter(
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
                                     context,
                                     R.layout.list_item,
                                     R.id.item_text,
@@ -42,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         intent = new Intent(context, ScheduleActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(context, InfiniteKittensActivity.class);
                         break;
                     default:
                         intent = new Intent(context, DiceActivity.class);
