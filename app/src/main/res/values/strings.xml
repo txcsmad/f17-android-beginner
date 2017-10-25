@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MAD Fall 2017</string>
+    <string name="compose_menu_item">Compose</string>
+    <string name="upload_pic_description">Upload pic</string>
+    <string name="caption_hint">Enter caption...</string>
+    <string name="take_pic_button">Take Picture</string>
+    <string name="upload_button">Upload</string>
+    <string name="image_preview">Image preview</string>
+
 </resources>
