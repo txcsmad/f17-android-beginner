@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,8 +25,19 @@
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".EventActivity" />
         <activity android:name=".InfiniteKittensActivity" />
+
+        <provider
+            android:authorities="txcsmad.madfall2017.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"/>
+        </provider>
+
         <activity android:name=".FeedActivity" />
-        <activity android:name=".ComposeActivity"></activity>
+        <activity android:name=".ComposeActivity"/>
     </application>
 
 </manifest>
