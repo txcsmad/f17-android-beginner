@@ -27,7 +27,7 @@
         <activity android:name=".InfiniteKittensActivity" />
 
         <provider
-            android:authorities="txcsmad.madfall2017.fileprovider"
+            android:authorities="com.txcsmad.madfall2017.fileprovider"
             android:name="android.support.v4.content.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
