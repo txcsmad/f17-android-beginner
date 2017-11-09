@@ -1,16 +1,14 @@
 package com.txcsmad.madfall2017;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         List<String> textList = Arrays.asList("Scarnes Dice",
                                                     "Schedule",
-                                                    "Infinite Kittens");
+                                                    "Infinite Kittens",
+                                                    "MADGram");
 
         ListView appList = (ListView) findViewById(R.id.app_listview);
         final Context context = this;
@@ -46,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         intent = new Intent(context, InfiniteKittensActivity.class);
+                        break;
+                    case 3:
+                        intent = new Intent(context, FeedActivity.class);
                         break;
                     default:
                         intent = new Intent(context, DiceActivity.class);
