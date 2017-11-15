@@ -150,11 +150,20 @@ public class FeedActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(FeedHolder feedHolder, int i) {
+        public void onBindViewHolder(FeedHolder feedHolder, final int i) {
             feedHolder.timeTextview.setText(timestamps.get(i));
             feedHolder.captionTextview.setText(captions.get(i));
             feedHolder.usernameTextview.setText(users.get(i));
             Picasso.with(context).load(urls.get(i)).into(feedHolder.imageView);
+
+            feedHolder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(FeedActivity.this, FullscreenActivity.class);
+                    intent.putExtra("url", urls.get(i));
+                    startActivity(intent);
+                }
+            });
         }
 
         @Override

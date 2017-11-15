@@ -7,4 +7,8 @@
     <string name="upload_button">Upload</string>
     <string name="image_preview">Image preview</string>
 
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>
