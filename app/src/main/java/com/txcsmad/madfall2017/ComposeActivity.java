@@ -110,10 +110,10 @@ public class ComposeActivity extends AppCompatActivity {
 
             ActivityCompat.requestPermissions(this,
                     new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        } else {
+            pictureButton.setOnClickListener(takePicListener);
+            uploadButton.setOnClickListener(uploadListener);
         }
-
-        uploadButton.setOnClickListener(uploadListener);
-        pictureButton.setOnClickListener(takePicListener);
     }
 
     @Override
@@ -122,6 +122,8 @@ public class ComposeActivity extends AppCompatActivity {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                     && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 pictureButton.setEnabled(true);
+                pictureButton.setOnClickListener(takePicListener);
+                uploadButton.setOnClickListener(uploadListener);
             }
         }
     }
