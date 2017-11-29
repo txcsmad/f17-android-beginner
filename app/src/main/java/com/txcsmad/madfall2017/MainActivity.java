@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.txcsmad.madfall2017.fragments.DiceFragmentActivity;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         List<String> textList = Arrays.asList("Scarnes Dice",
                                                     "Schedule",
                                                     "Infinite Kittens",
-                                                    "MADGram");
+                                                    "MADGram",
+                                                    "Fragments");
 
         ListView appList = (ListView) findViewById(R.id.app_listview);
         final Context context = this;
@@ -49,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         intent = new Intent(context, FeedActivity.class);
                         break;
+                    case 4:
+                        intent = new Intent(context, DiceFragmentActivity.class);
+                        break;
+                        
                     default:
                         intent = new Intent(context, DiceActivity.class);
                 }
